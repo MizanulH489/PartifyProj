@@ -1,4 +1,5 @@
 
+// function to go through csv and parse
 function parseCSVData(csv) {
   const parsed = Papa.parse(csv, {
       header: true,  
@@ -58,7 +59,7 @@ function loadCSV() {
               if (selectedItem) {
                   window.open(selectedItem.URL, '_blank');
               } else {
-                  alert("No matching product found.");
+                  alert(" Enter in new part.");
               }
           });
       })
