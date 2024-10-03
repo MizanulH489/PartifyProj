@@ -1,7 +1,10 @@
+// some concepts I was playing around with when trying to utilize the information given for the search function
+
+
 const fs = require('fs');
 const path = require('path');
 
-const csvDataPath = "data/Year Make Model Product Type Dataset.csv"; // Path to your CSV
+const csvDataPath = "data/Year Make Model Product Type Dataset.csv"; 
 const outputFileName = "parsed_data.json"; 
 const outputFilePath = path.join("data", outputFileName); 
 
@@ -11,7 +14,7 @@ fs.readFile(csvDataPath, 'utf8', (err, data) => {
     return;
   }
 
-  const lines = data.split("\n").filter(line => line.trim() !== ""); // Filter out empty lines
+  const lines = data.split("\n").filter(line => line.trim() !== ""); 
   const headers = lines[0].split(",");
 
   const parsedData = {
