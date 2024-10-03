@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const csvDataPath = "data/Year Make Model Product Type Dataset.csv"; // Path to your CSV
-const outputFileName = "parsed_data.json"; // Output file name
-const outputFilePath = path.join("data", outputFileName); // Output file path
+const outputFileName = "parsed_data.json"; 
+const outputFilePath = path.join("data", outputFileName); 
 
 fs.readFile(csvDataPath, 'utf8', (err, data) => {
   if (err) {
@@ -22,18 +22,15 @@ fs.readFile(csvDataPath, 'utf8', (err, data) => {
     url: []
   };
 
-  // Loop through lines starting from the second line (skip header)
   for (let i = 1; i < lines.length; i++) {
     const row = lines[i].split(",");
 
-    // Directly access columns by index
-    const year = row[0] ? row[0].trim() : "";           // Column 1: Year
-    const make = row[1] ? row[1].trim() : "";           // Column 2: Make
-    const model = row[2] ? row[2].trim() : "";          // Column 3: Model
-    const productType = row[3] ? row[3].trim() : "";    // Column 4: Product Type
-    const url = row[4] ? row[4].trim() : "";            // Column 5: URL
+    const year = row[0] ? row[0].trim() : "";           
+    const make = row[1] ? row[1].trim() : "";           
+    const model = row[2] ? row[2].trim() : "";          
+    const productType = row[3] ? row[3].trim() : "";    
+    const url = row[4] ? row[4].trim() : "";            
 
-    // Push values into the parsedData object
     parsedData.year.push(year);
     parsedData.make.push(make);
     parsedData.model.push(model);
@@ -41,9 +38,8 @@ fs.readFile(csvDataPath, 'utf8', (err, data) => {
     parsedData.url.push(url);
   }
 
-  const jsonData = JSON.stringify(parsedData, null, 2); // Format JSON nicely
+  const jsonData = JSON.stringify(parsedData, null, 2); 
 
-  // Write the parsed data to parsed_data.json
   fs.writeFile(outputFilePath, jsonData, (err) => {
     if (err) {
       console.error(err);

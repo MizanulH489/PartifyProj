@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partify</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partify</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="form-container">
-        <h1>Partify: Find Your Parts</h1>
-        <form id="vehicle-form">
-            <label for="year">Year:</label>
-            <input type="text" id="year" name="year" placeholder="Enter Year" required>
+  <div class="form-container">
+    <h1>Partify: Find Your Parts</h1>
+    <form id="vehicle-form">
+      <label for="year" style="color: rgb(7, 1, 1);">Year:</label>
+      <select id="year" name="year" required>
+        <option value="">Select Year</option>
+      </select>
 
-            <label for="make">Make:</label>
-            <input type="text" id="make" name="make" placeholder="Enter Make" required>
+      <label for="make" style="color: rgb(138, 138, 138);">Make:</label>
+      <select id="make" name="make" required>
+        <option value="">Select Make</option>
+      </select>
+     
+      <label for="model" style="color: rgb(138, 138, 138);">Model:</label>
+      <select id="model" name="model" required>
+        <option value="">Select Model</option>
+      </select>
 
-            <label for="model">Model:</label>
-            <input type="text" id="model" name="model" placeholder="Enter Model" required>
+      <label for="product-type" style="color: rgb(138, 138, 138);">Product Type:</label>
+      <select id="product-type" name="product-type" required>
+        <option value="">Select Product Type</option>
+      </select>
 
-            <label for="product-type">Product Type:</label>
-            <input type="text" id="product-type" name="product-type" placeholder="Enter Product Type" required>
+      <button type="submit" style="background-color: rgb(253, 172, 58);">Search</button>
+    </form>
+  </div>
 
-            <button type="submit">Search</button>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
+  <script src="data/Year Make Model Product Type Dataset.csv"></script>
 </body>
 </html>
