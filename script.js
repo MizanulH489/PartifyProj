@@ -21,6 +21,7 @@ function populateDropdown(dropdownId, options) {
   });
 }
 
+// function to use CSV for dropdown
 function loadCSV() {
   fetch('data/Year Make Model Product Type Dataset.csv')
    .then(response => {
@@ -35,13 +36,13 @@ function loadCSV() {
        console.log("Parsed vehicle data:", vehicleData);
 
 
-          // Populate dropdowns with unique values
+          // dropdown menu function 
           populateDropdown("year", getUniqueOptions(vehicleData, "Year"));
           populateDropdown("make", getUniqueOptions(vehicleData, "Make"));
           populateDropdown("model", getUniqueOptions(vehicleData, "Model"));
           populateDropdown("product-type", getUniqueOptions(vehicleData, "Product Type"));
 
-          // Handle form submission
+          // Form function to allow for dropdowm menu
           document.getElementById("vehicle-form").addEventListener("submit", function (event) {
               event.preventDefault();
 
@@ -66,26 +67,24 @@ function loadCSV() {
       });
 }
 
-
+// main form for partify 
 document.getElementById("vehicle-form").addEventListener("submit", function(event) {
   event.preventDefault();
 
-  // Capture user input
+  // get user input
   const year = document.getElementById("year").value;
   const make = document.getElementById("make").value;
   const model = document.getElementById("model").value;
   const productType = document.getElementById("product-type").value;
 
-  // Build the URL dynamically
+  // search function to go to url with search paramters
   let url = `https://partifyusa.com/collections/${year}-${make}-${model}`;
   
   if (productType) {
       url += `/type_${productType.replace(' ', '-')}`;
   }
 
-  // Open the URL in a new tab without closing the current page
   window.open(url, '_blank');
 });
 
-// Run the CSV loading function on page load
 document.addEventListener("DOMContentLoaded", loadCSV);
